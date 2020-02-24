@@ -7,5 +7,3 @@ WORKDIR /usr/app
 RUN sh -c 'touch gateway-1.0.0.jar'
 
 ENTRYPOINT ["java", "-jar", "gateway-1.0.0.jar"]
-
-EXPOSE 8761
