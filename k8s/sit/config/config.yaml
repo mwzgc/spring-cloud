@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: common-config
+data:
+  SPRING_PROFILES_ACTIVE: test
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-service:8761/eureka/
+  SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/test2
+  ACCOUNT_DATASOURCE_PASSWORD: root

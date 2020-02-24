@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: service-v1-svc-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: service-v1-svc
+        env: test
+    spec:
+      containers:
+        - name: service-v1-svc
+          image: mwz/service-v1
+          imagePullPolicy: Never
+          ports:
+            - name: http-port
+              containerPort: 8081
+          envFrom:
+            - configMapRef:
+                name: common-config

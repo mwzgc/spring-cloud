@@ -1,0 +1,56 @@
+version: '3.7'
+
+services:
+  eureka:
+    build: ./eureka
+    image: mwz/eureka
+    environment:
+      - SPRING_PROFILES_ACTIVE
+    ports:
+      - 8888:8761
+    networks:
+      - internal_access
+      - external_access
+
+  gateway:
+      build: ./gateway
+      image: mwz/gateway
+      environment:
+        - SPRING_PROFILES_ACTIVE
+        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+      depends_on:
+        - eureka
+      ports:
+        - 80:80
+      networks:
+        - internal_access
+        - external_access
+
+  service-v1:
+    build: ./service-v1
+    image: mwz/service-v1
+    environment:
+      - SPRING_PROFILES_ACTIVE
+      - SPRING.DATASOURCE.URL
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+    depends_on:
+      - eureka
+    networks:
+      - internal_access
+      - external_access
+
+  service-v2:
+      build: ./service-v2
+      image: mwz/service-v2
+      environment:
+        - SPRING_PROFILES_ACTIVE
+        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+      depends_on:
+        - eureka
+      networks:
+        - internal_access
+
+networks:
+  internal_access:
+    internal: true
+  external_access:

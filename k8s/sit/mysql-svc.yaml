@@ -1,0 +1,20 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql-svc
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3306
+      targetPort: 3306
+---
+# https://confluence.atlassian.com/jirakb/configuring-database-connection-results-in-error-host-xxxxxxx-is-not-allowed-to-connect-to-this-mysql-server-358908249.html
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: mysql-svc
+subsets:
+  - addresses:
+      - ip: 192.168.0.105 # UPDATE TO YOUR MYSQL IP ADDRESS
+    ports:
+      - port: 3306
