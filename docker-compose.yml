@@ -31,7 +31,7 @@ services:
     image: mwz/service-v1
     environment:
       - SPRING_PROFILES_ACTIVE
-      - SPRING.DATASOURCE.URL
+      - SPRING.DATASOURCE_URL
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
     depends_on:
       - eureka
