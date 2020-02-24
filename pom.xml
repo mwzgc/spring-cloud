@@ -8,8 +8,8 @@
         <module>service-v1</module>
         <module>service-v1-api</module>
         <module>service-v2</module>
-        <module>mybatis-plus-autoGenerator</module>
         <module>gateway</module>
+        <module>mybatis-plus-autoGenerator</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

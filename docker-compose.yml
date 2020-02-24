@@ -7,7 +7,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE
     ports:
-      - 8888:8761
+      - 8761:8761
     networks:
       - internal_access
       - external_access
