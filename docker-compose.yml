@@ -5,7 +5,7 @@ services:
     build: ./eureka
     image: mwz/eureka
     environment:
-      - SPRING_PROFILES_ACTIVE
+      - spring.profiles.active
     ports:
       - 8761:8761
     networks:
@@ -16,8 +16,8 @@ services:
       build: ./gateway
       image: mwz/gateway
       environment:
-        - SPRING_PROFILES_ACTIVE
-        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+        - spring.profiles.active
+        - eureka.client.serviceUrl.defaultZone
       depends_on:
         - eureka
       ports:
@@ -30,9 +30,9 @@ services:
     build: ./service-v1
     image: mwz/service-v1
     environment:
-      - SPRING_PROFILES_ACTIVE
-      - SPRING.DATASOURCE_URL
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+      - spring.profiles.active
+      - spring.datasource.url
+      - eureka.client.serviceUrl.defaultZone
     depends_on:
       - eureka
     networks:
@@ -43,8 +43,8 @@ services:
       build: ./service-v2
       image: mwz/service-v2
       environment:
-        - SPRING_PROFILES_ACTIVE
-        - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+        - spring.profiles.active
+        - eureka.client.serviceUrl.defaultZone
       depends_on:
         - eureka
       networks:
