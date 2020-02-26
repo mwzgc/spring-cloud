@@ -33,6 +33,7 @@ services:
       - spring.profiles.active
       - spring.datasource.url
       - eureka.client.serviceUrl.defaultZone
+      - sentry.dsn
     depends_on:
       - eureka
     networks:
