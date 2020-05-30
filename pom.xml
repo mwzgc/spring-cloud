@@ -10,6 +10,7 @@
         <module>service-v2</module>
         <module>gateway</module>
         <module>mybatis-plus-autoGenerator</module>
+        <module>service-es</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
