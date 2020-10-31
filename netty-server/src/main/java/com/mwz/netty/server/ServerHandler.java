@@ -3,11 +3,13 @@ package com.mwz.netty.server;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
+import lombok.extern.slf4j.Slf4j;
 
 
 /**
  * @author mwz
  */
+@Slf4j
 public class ServerHandler extends ChannelInboundHandlerAdapter { // (1)
 
     /**
@@ -30,7 +32,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter { // (1)
     public void channelRead(ChannelHandlerContext ctx, Object msg) { // (2)
         try {
             String content = msg.toString();
-            System.out.println("read: " + content);
+            log.info("read: {}", content);
 //            ctx.writeAndFlush("echo: " + content);
         } finally {
             ReferenceCountUtil.release(msg);
