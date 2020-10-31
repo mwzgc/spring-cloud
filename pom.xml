@@ -11,6 +11,9 @@
         <module>gateway</module>
         <module>mybatis-plus-autoGenerator</module>
         <module>service-es</module>
+        <module>netty-server</module>
+        <module>netty-client</module>
+        <module>core</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
